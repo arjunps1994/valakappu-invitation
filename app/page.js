@@ -24,9 +24,11 @@ export default function Page() {
           5 December 2026<span>2:30 PM to 8:30 PM</span>
         </p>
       </>}>
+      <div className="details">
       <p className="names">Arju <em>&amp;</em> Juhi</p>
       <Countdown />
 
+      <div className="cards">
       <section className="card">
         <h2>When</h2>
         <p className="big">Saturday, 5 December 2026</p>
@@ -43,7 +45,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="card">
+      <section className="card wide">
         <h2>Where</h2>
         <p className="big">Heritage 1866</p>
         <p>Melur, Thalassery, Kannur, Kerala</p>
@@ -56,13 +58,15 @@ export default function Page() {
         <a className="btn" href={`https://www.google.com/maps/search/?api=1&query=${Q}`} target="_blank" rel="noopener noreferrer">Get Directions</a>
       </section>
 
-      <section className="card">
+      <section className="card wide">
         <h2>RSVP</h2>
         <p>Do let us know you&apos;re joining us.</p>
         <a className="btn" href={rsvp} target="_blank" rel="noopener noreferrer">RSVP on WhatsApp</a>
       </section>
+      </div>
 
       <footer>With love, Arju &amp; Juhi</footer>
+      </div>
       </Gate>
     </main>
   );
