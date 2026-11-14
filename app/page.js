@@ -1,11 +1,11 @@
 import Countdown from "./Countdown";
 import Gate from "./Gate";
 
-const PHONE = "91XXXXXXXXXX"; // TODO: your WhatsApp number, country code + number, no + or spaces
+const PHONE = process.env.NEXT_PUBLIC_RSVP_WHATSAPP;
 const PLACE = "Heritage 1866, Melur, Thalassery, Kannur, Kerala";
 const Q = encodeURIComponent("Heritage 1866 Melur Thalassery Kannur");
 
-const rsvp = `https://wa.me/${PHONE}?text=${encodeURIComponent("Hi Arju, I'll be attending Juhi's Valakappu on 5 Dec.")}`;
+const rsvp = /^[1-9]\d{7,14}$/.test(PHONE ?? "") ? `https://wa.me/${PHONE}?text=${encodeURIComponent("Hi Arju, I'll be attending Juhi's Valakappu on 5 Dec.")}` : null;
 const cal = "https://calendar.google.com/calendar/render?" + new URLSearchParams({
   action: "TEMPLATE",
   text: "Valakappu - Arju & Juhi",
@@ -58,11 +58,11 @@ export default function Page() {
         <a className="btn" href={`https://www.google.com/maps/search/?api=1&query=${Q}`} target="_blank" rel="noopener noreferrer">Get Directions</a>
       </section>
 
-      <section className="card wide">
+      {rsvp && <section className="card wide">
         <h2>RSVP</h2>
         <p>Do let us know you&apos;re joining us.</p>
         <a className="btn" href={rsvp} target="_blank" rel="noopener noreferrer">RSVP on WhatsApp</a>
-      </section>
+      </section>}
       </div>
 
       <footer>With love, Arju &amp; Juhi</footer>
